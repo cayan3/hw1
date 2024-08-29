@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "queries-java"
+		},
+		{
+			"path": "queries-python"
+		},
+		{
+			"path": "codeql"
+		},
+	],
+	"settings": {
+		"omnisharp.autoStart": false
+	}
+}
