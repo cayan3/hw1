@@ -6,7 +6,7 @@ Homework 1: Syntactic Analysis With CodeQL
 - Implement simple analyses with CodeQL queries.
 
 ### Handin Instructions:
-Submit via the Gradescope online assignment for Homework 1: https://www.gradescope.com/courses/489947/assignments/2585781
+Submit via the Gradescope online assignment for Homework 1: [https://www.gradescope.com/courses/489947/assignments/2585781](https://www.gradescope.com/courses/841099/assignments/4844642)
 
 ### Grading:
 This homework is worth 100 points (with a possible 30 bonus points). The point
