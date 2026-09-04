@@ -30,16 +30,14 @@ predicate parameter_default_none(Function f, LocalVariable v) {
 //   (15 points).
 // - Return the statement (10 points).
 Stmt assigned_self_or_default(Function f, LocalVariable v) {
-  exists(AssignStmt a, BoolExpr orExpr, Name target, Name maybeV |
-    function_has_parameter(f, v) and  // 1. check that v is a parameter of f
-    a = f.getAStmt() and              // 2. id a stmt inside the fn...
-    a.getTarget(0) = target and       //    ...that assigns a val...
-    target.getVariable() = v and      //    ...to v
-    a.getValue() = orExpr and         // 3. check that the val...
-    orExpr.getOperator() = "or" and   //    ...is an Or
-    orExpr.getValue(0) = maybeV and   // 4. check that the first operand of the Or...
-    maybeV.getVariable() = v and      //    ...is v
-    result = a                        // 5. return the stmt
+  function_has_parameter(f, v) and                    // 1. check that v is a parameter of f
+  exists(AssignStmt a, BoolExpr orExpr |
+    f = a.getScope() and                              // 2. id a stmt inside the fn...
+    a.getTarget(0).(Name).getVariable() = v and       //    ...assigning a val to v
+    a.getValue() = orExpr and                         // 3. check that the val...
+    orExpr.getOperator() = "or" and                   //    ...is an Or
+    orExpr.getValue(0).(Name).getVariable() = v and   // 4. check that the first operand is v
+    result = a                                        // 5. return the stmt
   )
 }
 
